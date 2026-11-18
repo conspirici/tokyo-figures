@@ -27,6 +27,7 @@ const RawProduct = z.object({
   // Selling price. `price_usd` is current; `my_price_usd` is accepted for older files.
   price_usd: z.number().nullable().optional(),
   my_price_usd: z.number().nullable().optional(),
+  source_url: z.string().nullable().optional(),
 });
 
 const Raw = z.object({ currency: z.literal("USD"), products: z.array(RawProduct) });
@@ -101,6 +102,7 @@ function load(): PublicProduct[] {
       price: price ?? null,
       inStock,
       ageGate: ageGate[p.tf_id] === true,
+      retailerUrl: p.source_url && /^https:\/\/tokyofigure\.jp\//.test(p.source_url) ? p.source_url : null,
       images: findImages(p.tf_id),
     };
   });

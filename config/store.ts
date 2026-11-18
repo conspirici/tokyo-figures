@@ -33,6 +33,13 @@ export const store = {
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.pages.dev",
 };
 
+/** The Japanese retailer this site officially represents in the US. */
+export const retailer = {
+  name: "Tokyo Figure",
+  url: "https://tokyofigure.jp",
+  badge: "Official US seller of Tokyo Figure",
+};
+
 /**
  * Policy details used across Shipping, Returns, FAQ, Wholesale and the form confirmations.
  * These are sensible defaults written for launch. Change any value here and every page updates.
@@ -54,12 +61,12 @@ export const policies = {
 };
 
 /** Ticker phrases under the hero. Keep them true. */
-export const tickerPhrases = ["New arrivals", "Outlet deals", "Ships from Japan", "Wholesale welcome", "Carefully packed"];
+export const tickerPhrases = ["Official US seller of Tokyo Figure", "New arrivals", "Outlet deals", "Ships from Japan", "Wholesale welcome"];
 
-/** Trust strip. Do not add "official", "authorized dealer" or "free shipping" unless true. */
+/** Trust strip. Do not add "free shipping" unless true. */
 export const trustItems = [
+  { title: "Official Tokyo Figure seller", body: "The official US storefront for Tokyo Figure, Japan." },
   { title: "Ships from Japan", body: "Sent from Japan with tracking." },
-  { title: "Carefully packed", body: "Packed so the box arrives the way you'd want it." },
   { title: "Customs duties info up front", body: "We explain US import duties before you pay." },
   { title: "Outlet items clearly labeled", body: "Box or minor flaws are always disclosed." },
 ];

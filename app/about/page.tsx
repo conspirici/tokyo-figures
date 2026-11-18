@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { InfoPage } from "@/components/Prose";
 import { TrustStrip } from "@/components/TrustStrip";
-import { store } from "@/config/store";
+import { retailer, store } from "@/config/store";
 
 export const metadata: Metadata = {
   title: "How it works",
@@ -11,14 +11,14 @@ export const metadata: Metadata = {
 };
 
 const steps = [
-  { n: "01", t: "Pick your figure", b: "Every figure on the site is one we've chosen. Outlet items are clearly marked with what to expect." },
+  { n: "01", t: "Pick your figure", b: "Every figure comes from Tokyo Figure in Japan. Outlet items are clearly marked with what to expect." },
   { n: "02", t: "We ship it from Japan", b: "Your order is packed and sent from Japan with tracking." },
   { n: "03", t: "Customs, explained", b: "US import duties are explained before you pay, so there are no surprises at the door." },
 ];
 
 export default function AboutPage() {
   return (
-    <InfoPage tag="ABOUT" title="How it works" intro="A small shop bringing Japanese figures to US collectors, one carefully chosen piece at a time.">
+    <InfoPage tag="ABOUT" title="How it works" intro={`${store.name} is the official US seller of ${retailer.name}, Japan.`}>
       <ol className="grid gap-4 sm:grid-cols-3">
         {steps.map((s) => (
           <li key={s.n} className="list-none rounded-2xl border-2 border-ink bg-white p-5 shadow-hard-sm">
@@ -31,18 +31,21 @@ export default function AboutPage() {
 
       <h2>Who we are</h2>
       <p>
-        {store.name} is a small, independent shop run by collectors, for collectors. We source figures directly from stores in
-        Japan, inspect every listing carefully, and describe each one honestly, including any box wear on outlet items.
+        {store.name} is the official US storefront for{" "}
+        <a href={retailer.url} target="_blank" rel="noopener">{retailer.name}</a>, the Japanese figure retailer. Every figure on
+        this site comes from {retailer.name}&apos;s inventory in Japan and is described exactly as listed, including any box wear on
+        outlet items.
       </p>
       <p>
-        Importing a figure yourself means navigating Japanese storefronts, international shipping and US customs. We handle all of
-        that for you, with straightforward pricing in US dollars and a real person on the other end of every email.
+        Buying from a Japanese store directly means navigating a Japanese storefront, international shipping and US customs. We
+        handle all of that for you, with pricing in US dollars, English-language support and a real person on the other end of
+        every email.
       </p>
 
-      <h2>Why only 15 figures?</h2>
+      <h2>A curated selection</h2>
       <p>
-        We&apos;d rather carry a short list we know well than a giant catalog. Each figure is picked for its sculpt, its
-        fandom, or because it&apos;s hard to find in the US.
+        Rather than mirroring the full Japanese catalog, we offer a hand-picked selection of {retailer.name} figures chosen for US
+        collectors, including {retailer.name} limited editions and outlet deals.
       </p>
 
       <h2>Questions?</h2>

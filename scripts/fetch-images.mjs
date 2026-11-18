@@ -1,4 +1,4 @@
-// LOCAL DEVELOPMENT ONLY.
+// Saves Tokyo Figure product photos locally so the site never hotlinks their CDN.
 // Downloads each product's source_image_url into public/images/{tf_id}/main.jpg and builds responsive variants.
 // Pass --resize-only to just (re)build variants from photos you've placed yourself (main.jpg, 2.jpg, 3.jpg).
 import sharp from "sharp";
@@ -12,10 +12,10 @@ const WIDTHS = [480, 960];
 
 const banner = `
 ┌──────────────────────────────────────────────────────────────────────┐
-│  WARNING: these photos belong to the Japanese retailer.             │
-│  They are for local development only. Replace every file in         │
-│  public/images/ with your own photos or licensed images before      │
-│  launch. public/images/*/ is git-ignored on purpose.                │
+│  Product photos from Tokyo Figure (tokyofigure.jp), saved into      │
+│  public/images/ so the site never hotlinks their CDN.               │
+│  Commit public/images/ so the deployed site shows them.             │
+│                                                                     │
 └──────────────────────────────────────────────────────────────────────┘`;
 if (!resizeOnly) console.warn(banner);
 

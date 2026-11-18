@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { store } from "@/config/store";
+import { retailer, store } from "@/config/store";
 
 const cols = [
   {
@@ -38,7 +38,12 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-[1.4fr_repeat(3,1fr)]">
           <div>
             <p className="font-display text-3xl text-lime">{store.name}</p>
-            <p className="mt-3 max-w-xs text-sm text-white/75">{store.tagline}. A small, curated shop: 15 figures, picked one by one.</p>
+            <p className="mt-3 max-w-xs text-sm text-white/75">
+              {retailer.badge}. Japanese figures, shipped from Japan to US collectors.
+            </p>
+            <a href={retailer.url} target="_blank" rel="noopener" className="mt-4 inline-block rounded-full border-2 border-lime px-4 py-1.5 text-sm font-bold text-lime hover:bg-lime hover:text-ink">
+              Visit {retailer.name} Japan ↗
+            </a>
           </div>
           {cols.map((c) => (
             <nav key={c.title} aria-label={c.title}>
@@ -56,8 +61,8 @@ export function Footer() {
           ))}
         </div>
         <p className="mt-12 border-t border-white/20 pt-6 text-xs leading-relaxed text-white/70">
-          This is an independent retailer, not affiliated with or endorsed by the publishers, studios or manufacturers of the
-          products shown. All product names, characters and trademarks belong to their respective owners.
+          {store.name} is the official US seller of {retailer.name}, Japan. We are not affiliated with or endorsed by the publishers,
+          studios or manufacturers of the products shown. All product names, characters and trademarks belong to their respective owners.
         </p>
         <p className="mt-3 text-xs text-white/50">© {new Date().getFullYear()} {store.name}. Prices in USD.</p>
       </div>

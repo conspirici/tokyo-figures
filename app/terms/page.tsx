@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { InfoPage } from "@/components/Prose";
-import { policies, store } from "@/config/store";
+import { policies, retailer, store } from "@/config/store";
 
 export const metadata: Metadata = { title: "Terms", alternates: { canonical: "/terms/" } };
 
@@ -10,8 +10,8 @@ export default function TermsPage() {
     <InfoPage tag="LEGAL" title="Terms of sale" intro={`These terms apply to all purchases from ${store.name}. By placing an order, you agree to them.`}>
       <h2>Who we are</h2>
       <p>
-        {store.name} is an independent retailer, not affiliated with or endorsed by the publishers, studios or manufacturers of the
-        products shown. All product names, characters and trademarks belong to their respective owners.
+        {store.name} is the official US seller of {retailer.name}, Japan. We are not affiliated with or endorsed by the publishers,
+        studios or manufacturers of the products shown. All product names, characters and trademarks belong to their respective owners.
       </p>
 
       <h2>Products and descriptions</h2>

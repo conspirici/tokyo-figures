@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProduct, getProducts, getProductSummaries, getRelated } from "@/lib/products";
 import { formatPrice, pad2 } from "@/lib/format";
-import { store } from "@/config/store";
+import { retailer, store } from "@/config/store";
 import { Gallery } from "@/components/Gallery";
 import { BuyBox } from "@/components/BuyBox";
 import { PriceChip } from "@/components/PriceChip";
@@ -135,6 +135,23 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           <div className="mt-6">
             <BuyBox slug={p.slug} title={p.title} price={p.price} inStock={p.inStock} image={p.images[0]} />
           </div>
+
+          {p.retailerUrl && (
+            <a
+              href={p.retailerUrl}
+              target="_blank"
+              rel="noopener"
+              className="mt-4 flex items-center justify-between gap-3 rounded-xl border-2 border-ink bg-white px-4 py-3 text-sm"
+            >
+              <span>
+                <span className="block font-bold">Sold by {retailer.name}, Japan</span>
+                <span className="text-ink-soft">{retailer.badge}. View the original listing (TF {p.id}).</span>
+              </span>
+              <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none" stroke="currentColor" strokeWidth={2.4} aria-hidden>
+                <path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h5" />
+              </svg>
+            </a>
+          )}
 
           <p className="mt-4 text-sm">
             Buying for a store?{" "}

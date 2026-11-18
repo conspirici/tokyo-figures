@@ -31,9 +31,13 @@ Prices come from `price_usd` in `products.json` (`my_price_usd` is still accepte
 - Every record has a `needs_verification` list (official English names, scale, maker).
 - The hero slide 3 figure should match TF 565. The owner needs to confirm this.
 
-## ⚠ Images
+## Tokyo Figure (official seller)
 
-`npm run fetch-images` downloads photos from the Japanese retailer's CDN **for local development only**. Don't assume you have the right to reuse them. Replace every file in `public/images/{tf_id}/` (`main.jpg`, optional `2.jpg`, `3.jpg`) with your own photos or licensed images, then run `npm run images`. The folder is git-ignored. If a product has no photo, a numbered placeholder tile is shown instead.
+This site is the official US seller of Tokyo Figure (tokyofigure.jp). The retailer name, link and "official" wording live in `retailer` in `config/store.ts`. Each product page links to its original Tokyo Figure listing (`source_url`; only tokyofigure.jp links are shown).
+
+## Images
+
+Product photos are Tokyo Figure's own. `npm run fetch-images` saves them into `public/images/{tf_id}/` (main.jpg plus 480/960 webp variants) so the site never hotlinks the CDN, and they're committed to the repo. To add extra gallery shots, drop `2.jpg` / `3.jpg` into a product's folder and run `npm run images`.
 
 ## Editing the store
 

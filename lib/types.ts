@@ -23,6 +23,7 @@ export interface PublicProduct {
   price: number | null;
   inStock: boolean;
   ageGate: boolean;
+  retailerUrl: string | null; // product page on tokyofigure.jp
   images: string[]; // base paths, e.g. /images/434/main (variants: -480.webp, -960.webp, .jpg)
 }
 
