@@ -1,0 +1,15 @@
+node_modules/
+.next/
+out/
+.wrangler/
+.dev.vars
+*.tsbuildinfo
+next-env.d.ts
+# Retailer photos pulled by `npm run fetch-images` are for local dev only.
+public/images/*/
+.env.local
+.env*.local
+.netlify/
+# Internal working files (contain cost data)
+Claude outputs/
+*.xlsx

@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "hatsune-miku-cute-1-4-tokyo-figure-limited",
+    "image": "/hero/slide-1",
+    "focal": { "x": 78, "y": 60 },
+    "alt": "Hatsune Miku figure sitting on a pedestal among sneaker boxes on a blue pop-art background",
+    "headline": "Street-style Miku",
+    "subline": "1/4 scale, limited colorway",
+    "ctaLabel": "Shop Miku",
+    "ctaHref": "/products/hatsune-miku-cute-1-4-tokyo-figure-limited/",
+    "badge": "LIMITED",
+    "sparkles": [[58, 22], [66, 70], [90, 18], [93, 62], [62, 45]]
+  },
+  {
+    "slug": "genshin-impact-hu-tao-1-7-apex-outlet",
+    "image": "/hero/slide-2",
+    "focal": { "x": 72, "y": 50 },
+    "alt": "Hu Tao figure on a round pedestal under a large lime moon with plum blossoms and paper lanterns",
+    "headline": "Hu Tao, plum-blossom edition",
+    "subline": "Genshin Impact, 1/7 scale",
+    "ctaLabel": "See Hu Tao",
+    "ctaHref": "/products/genshin-impact-hu-tao-1-7-apex-outlet/",
+    "badge": "OUTLET",
+    "sparkles": [[55, 20], [60, 72], [88, 26], [91, 70], [57, 46]]
+  },
+  {
+    "slug": "fgo-caster-charlotte-corday-summer-queens",
+    "image": "/hero/slide-3",
+    "focal": { "x": 70, "y": 55 },
+    "alt": "Charlotte Corday swimsuit figure on a pedestal in front of a lime sun with waves and beach balls",
+    "headline": "Summer Queens",
+    "subline": "Charlotte Corday, pre-painted",
+    "ctaLabel": "Shop the figure",
+    "ctaHref": "/products/fgo-caster-charlotte-corday-summer-queens/",
+    "badge": "NEW",
+    "sparkles": [[54, 24], [59, 68], [87, 20], [90, 66], [56, 48]]
+  }
+]

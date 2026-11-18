@@ -1,0 +1,10 @@
+# Copy to .dev.vars for `npm run pages:dev`. Never commit .dev.vars.
+RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxx
+INQUIRY_TO_EMAIL=owner@example.com
+INQUIRY_FROM_EMAIL=Shop Inquiries <inquiries@your-verified-domain.com>
+# Send an auto-confirmation email to the customer ("1" on, "0" off)
+SEND_CUSTOMER_CONFIRMATION=1
+# "1" logs the email instead of calling Resend (handy for local testing)
+INQUIRY_DRY_RUN=1
+# Cloudflare's always-pass test secret. Replace with your real secret in production.
+TURNSTILE_SECRET_KEY=1x0000000000000000000000000000000AA

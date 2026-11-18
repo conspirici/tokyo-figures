@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>Forms</title>
+  </head>
+  <body>
+    <!--
+      Registers the "inquiry" form with Netlify Forms at deploy time.
+      The real form is components/InquiryForm.tsx, which posts here via fetch (lib/submit-inquiry.ts).
+      Field names must match the ones sent there.
+    -->
+    <form name="inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="inquiry" />
+      <input name="bot-field" />
+      <input name="type" />
+      <input name="name" />
+      <input name="email" type="email" />
+      <input name="company" />
+      <textarea name="products"></textarea>
+      <input name="quantity" />
+      <input name="country" />
+      <input name="region" />
+      <textarea name="message"></textarea>
+      <input name="consent" />
+    </form>
+  </body>
+</html>

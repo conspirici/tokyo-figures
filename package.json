@@ -1,0 +1,42 @@
+{
+  "name": "tokyo-figure-catalog",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "prebuild": "node scripts/validate-data.mjs && node scripts/check-hero.mjs",
+    "build": "next build",
+    "start": "npx serve out",
+    "pages:dev": "npm run build && wrangler pages dev out",
+    "fetch-images": "node scripts/fetch-images.mjs",
+    "optimize-hero": "node scripts/optimize-hero.mjs",
+    "report": "node scripts/report.mjs",
+    "typecheck": "tsc --noEmit",
+    "images": "node scripts/fetch-images.mjs --resize-only",
+    "typecheck:functions": "tsc -p functions --noEmit",
+    "check:leaks": "node scripts/check-leaks.mjs",
+    "postbuild": "node scripts/check-leaks.mjs"
+  },
+  "dependencies": {
+    "motion": "^14.14.0",
+    "next": "^16.4.6",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261118.1",
+    "@tailwindcss/postcss": "^4.3.5",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "postcss": "^8.5.33",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^4.3.5",
+    "typescript": "^5.9.3",
+    "wrangler": "^4.164.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

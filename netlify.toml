@@ -1,0 +1,12 @@
+# Netlify: static export of the Next.js site. No Next runtime or server functions needed.
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "22"
+  # Inquiry form submits to Netlify Forms (see lib/submit-inquiry.ts and public/__forms.html)
+  NEXT_PUBLIC_FORM_BACKEND = "netlify"
+  # Turnstile isn't used with Netlify Forms (Netlify has its own spam filter + honeypot)
+  NEXT_PUBLIC_TURNSTILE_SITE_KEY = ""
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
