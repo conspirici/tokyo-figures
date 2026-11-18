@@ -77,7 +77,20 @@ The flow is `components/InquiryForm.tsx` → `POST /api/inquiry` (`functions/api
 
 The cart is stored in localStorage. "Check out" calls `functions/api/checkout.ts`, which currently answers "coming soon". To add Stripe, follow the steps in that file's header comment. The client (`lib/checkout.ts`) already redirects to the returned `url`. Prices must be looked up server-side.
 
-## Deploying to Netlify (recommended for now)
+## Deploying to Vercel
+
+`vercel.json` configures everything: it builds the static site into `out/` and serves the two functions in `api/` (`/api/inquiry`, `/api/checkout`), which share their logic with the Cloudflare version (`lib/inquiry-handler.ts`).
+
+1. In Vercel, choose **Add New → Project**, import this GitHub repo and click **Deploy**. Leave the framework preset as set by `vercel.json` (Other) and don't change the build settings.
+2. That's it: the contact, wholesale, notify-me and order forms work immediately.
+
+**Email:** until Resend is set up, every inquiry is accepted and written to the function logs (Vercel → project → **Logs**, filter on `[inquiry]`). Log retention on the free plan is short, so set up Resend before relying on the form. To get inquiries by email, add these under **Settings → Environment Variables** and redeploy: `RESEND_API_KEY`, `INQUIRY_TO_EMAIL`, `INQUIRY_FROM_EMAIL` (see Resend steps below), plus optional `SEND_CUSTOMER_CONFIRMATION=0` to turn off the customer confirmation.
+
+**Spam protection (optional):** add `NEXT_PUBLIC_TURNSTILE_SITE_KEY` and `TURNSTILE_SECRET_KEY` to turn on Cloudflare Turnstile. Without them, the honeypot field still filters basic bots.
+
+Optionally set `NEXT_PUBLIC_SITE_URL` to your Vercel URL or domain for canonical links and the sitemap.
+
+## Deploying to Netlify
 
 `netlify.toml` already configures everything: build command `npm run build`, publish directory `out`, Node 22, and `NEXT_PUBLIC_FORM_BACKEND=netlify`.
 
